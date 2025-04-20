@@ -1,0 +1,33 @@
+type Query {
+    checkHealth: String
+# Cloudflare
+    generateUploadPresignedUrl(objectKey: String): String
+# Category
+    getCategoryDetail(id: Int!): CategoryResponse
+    getCategoryList(filter: CategoryFilter, keyword: String, pageNumber: Int!, pageSize: Int!): CategoryListResponse!
+    getCategoryListByUserId(userId: Int!, pageNumber: Int!, pageSize: Int!): CategoryListResponse!
+    getCategoryListByCreatedUser(createdUserId: Int!, pageNumber: Int!, pageSize: Int!): CategoryListResponse!
+    getListSuggestions(userId: Int!, pageNumber: Int!, pageSize: Int!): CategoryListResponse!
+# Module
+    getModuleDetail(id: Int!): ModuleResponse
+    getModuleListOfCategory(categoryId: Int!, pageNumber: Int!, pageSize: Int!): ModuleListResponse!
+# TaskId
+    getTasksByModuleId(moduleId: Int!, pageNumber: Int!, pageSize: Int!): TaskListResponse!
+    getTaskById(id: Int!): TaskResponse!
+    getRandomTasksByUserId(userId: Int!, isCurrentTime: Boolean!, pageNumber: Int!, pageSize: Int!): TaskListResponse!
+    getRandomTasks(filter: CategoryFilter, keyword: String, pageNumber: Int!, pageSize: Int!): TaskListResponse!
+    getRandomTasksByCreatedUser(createdUserId: Int!, pageNumber: Int!, pageSize: Int!): TaskListResponse!
+    searchAll(input: SearchAllInput): SearchAllResponse!
+    getNextTaskId(taskId: Int!): Int!
+    getPreviousTaskId(taskId: Int!): Int!
+    getAllReviewModeTasksByUserId(userId: Int!): [TaskResponse!]
+    getAllReviewModeTasksByCreatedUser(createdUserId: Int!): [TaskResponse!]
+    getCategoryId(taskId: Int!): Int!
+# User
+    getAllActiveTrainee: [UserResponse]
+    getAllActiveTraineeOfCategory(categoryId: Int!): [UserResponse]
+    getAllActiveTraineeOfTask(taskId: Int!): [UserResponse]
+    getUserById(id: Int!): UserResponse!
+    getUserList(filter: UserFilter, keyword: String, pageNumber:Int!, pageSize: Int!): UserListResponse!
+}
+

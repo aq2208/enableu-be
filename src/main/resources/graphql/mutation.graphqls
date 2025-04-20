@@ -1,0 +1,47 @@
+type Mutation {
+    sendSMS(to: String!, code: String!): String
+    # category
+    createCategory(input: CategoryRequest!): CategoryResponse
+    softDeleteCategory(id: Int!): String
+    updateCategory(id: Int!, input: CategoryRequest!): CategoryResponse
+    updateTaskProcess(taskId: Int!, categoryId: Int!): String
+    updateCategoryStatus(id: Int!, status: Status!): CategoryResponse
+    updateOrderInCategory(categoryId: Int!, orderRequests: [ChangeOrderRequest!]): CategoryOrderResponse!
+
+    # module
+    createModule(categoryId: Int!, input: ModuleRequest!): ModuleResponse
+    softDeleteModule(id: Int!): String
+    updateModule(id: Int!, input: ModuleRequest!): ModuleResponse
+
+    #task
+    createTask(input: CreateTaskInput!) : TaskResponse
+    updateTask(input: UpdateTaskInput!): TaskResponse
+    deleteTask(id: Int!): String
+    updateTaskStatus(id: Int!, status: Status!): TaskResponse
+
+    #login
+    login(username: String!, password: String!): AuthResponse
+    refresh(refreshToken: String!): AuthResponse
+
+    #register
+    register(input: CreateUserInput!): User!
+
+    #otp
+    generateOtpAndSendSms(phoneNumber: String!): String
+    verifyOtp(phoneNumber: String!, otp: String!): String
+
+    #storage
+    uploadFile(file: Upload!): String
+
+    #user
+    changePassword(input: ChangePasswordRequest!): User
+    forgotPassword(username: String!): String
+    updateUserStatus(id: Int!, status: UserStatus!): User
+    deleteAccount(id: Int!): String
+    updateUserProfile(id: Int!, input: UpdateUserProfile!): UserResponse
+    updateUserAvatar(id: Int!, avatar: String): String
+    updateShortcut(id: Int!, input: [ShortcutInput]): UserResponse
+
+    #voiceSearch
+    getTranscript(file: Upload!): VoiceSearchResponse!
+}

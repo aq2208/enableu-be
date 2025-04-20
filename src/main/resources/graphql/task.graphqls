@@ -1,0 +1,105 @@
+type TaskEntity {
+    id: ID!
+    name: String
+    description: String
+    thumbnail: String
+    attachment: String
+    content: String
+    status: String
+    code: String
+    type: String
+    orderId: Int
+    moduleId: ID
+    module: ModuleEntity
+    isReviewMode: Boolean
+    highlightTimeJson: String
+}
+
+type Step {
+    orderId: Int
+    name: String
+    content: String
+    text: String
+    attachmentUrl: String
+}
+
+input CreateTaskInput {
+    name: String!
+    description: String
+    thumbnail: String
+    attachment: String
+    status: Status
+    type: Type
+    isReviewMode: Boolean
+    orderId: Int
+    moduleId: ID
+    content: String
+    traineeIdList: [Int!]
+    highlightTimeJson: [HighlightTimeJson]
+    step: [StepInput]
+}
+
+input HighlightTimeJson {
+    startTime: String
+    endTime: String
+}
+
+type HighlightTime {
+    startTime: String
+    endTime: String
+}
+
+input UpdateTaskInput {
+    taskId: Int!
+    name: String
+    description:String
+    thumbnail: String
+    content: String
+    status: String
+    isReviewMode: Boolean
+    type: String
+    orderId: Int
+    highlightTimeJson: [HighlightTimeJson]
+    traineeIdList: [Int!]
+    step: [StepInput]
+}
+
+input StepInput {
+    orderId: Int!
+    name: String!
+    content: String!
+    text: String
+}
+
+type TaskResponse {
+    id: ID!
+    name: String
+    description: String
+    moduleId: Int
+    thumbnail: String
+    attachment: String
+    status: String
+    code: String
+    type: String
+    orderId: Int
+    isReviewMode: Boolean
+    highlightTimeJson: [HighlightTime]
+    traineeIdList: [Int!]
+    step: [Step]
+    content: String
+    numberOfTrainees: Int
+    createdAt: String
+    createdBy: String
+    createdByUserId: Int
+}
+
+type Transcript {
+    startTime: String
+    endTime: String
+    text: String
+}
+
+type TaskListResponse {
+    pagination: Pagination
+    data: [TaskResponse!]
+}

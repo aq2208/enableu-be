@@ -1,0 +1,37 @@
+spring:
+# liquibase
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/enable-u
+    username: admin
+    password: admin
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/master.xml
+    drop-first: false
+  graphql:
+    graphiql:
+      enabled: true
+
+cloud:
+  cloudflare:
+    credentials:
+      access-key: 12f316f595b54bae08a6cb6a29857065
+      secret-key: c4f47cf877fcbb5a9d4a83421e314490f5530af19c898cd32ef52567a1796653
+    region:
+      static: auto
+    endpoint: https://39e69c6568af7511982f15e56b5ef915.r2.cloudflarestorage.com
+    stack:
+      auto: false
+
+application:
+  jwt:
+    secret: secretkeyherethatwhatweneedtomakeitmoresecret
+  bucket:
+    name: enableu-test-bucket
+    url: https://pub-4bef732099a64aeaa5d90a54d91745a3.r2.dev
+
+test:
+  service:
+    module:
+      categoryId: 1

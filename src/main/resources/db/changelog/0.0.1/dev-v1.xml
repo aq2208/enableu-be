@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="add-task-process-id-user-category" author="admin">
+        <addColumn tableName="user_category">
+            <column name="task_process_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <dropColumn tableName="user_category">
+            <column name="task_process"/>
+        </dropColumn>
+    </changeSet>
+    <changeSet id="update-thumbnail-nullable-task" author="maintn">
+        <dropNotNullConstraint tableName="task" columnName="thumbnail" columnDataType="varchar(255)"/>
+        <dropNotNullConstraint tableName="user" columnName="email" columnDataType="varchar(255)"/>
+    </changeSet>
+
+</databaseChangeLog>

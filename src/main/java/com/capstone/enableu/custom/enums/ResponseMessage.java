@@ -1,0 +1,73 @@
+package com.capstone.enableu.custom.enums;
+
+public enum ResponseMessage {
+    // user
+    USER_NOT_AUTHORIZED,
+    USER_NOT_FOUND,
+    USER_ALREADY_EXISTS,
+    USER_INVALID_PHONE_NUMBER,
+    USER_UPDATE_SUCCESS,
+
+    // category
+    CATEGORY_NOT_FOUND,
+    CATEGORY_DELETED_SUCCESSFULLY,
+    CATEGORY_DELETED_FAILED,
+
+    // module
+    MODULE_NOT_FOUND,
+    MODULE_DELETED_SUCCESSFULLY,
+    MODULE_DELETED_FAILED,
+
+    // task
+    TASK_NOT_FOUND,
+    TASK_DELETED_SUCCESSFULLY,
+    TASK_DELETED_FAILED,
+
+    // step
+    STEP_NOT_FOUND,
+    STEP_DELETED_SUCCESSFULLY,
+    STEP_DELETED_FAILED,
+
+    // user_category
+    USER_CATEGORY_NOT_FOUND,
+    TASK_PROCESS_UPDATED,
+
+    //user_module
+    USER_MODULE_NOT_FOUND,
+
+    // login
+    ACCOUNT_NOT_APPROVED,
+    ACCOUNT_INACTIVE,
+    LOGIN_FAILED,
+
+    // register
+    PHONE_NUMBER_EXISTED,
+
+    // token
+    TOKEN_EXPIRED,
+    TOKEN_INVALID,
+
+    // change password
+    INCORRECT_PASSWORD,
+    CODE_SENT,
+
+    // Valid
+    INCORRECT_DATE_FORMAT,
+
+    // otp
+    OTP_SENT,
+    OTP_INVALID_OR_EXPIRED,
+    OTP_VERIFIED,
+
+    //TraineeList
+    TRAINEE_ID_IS_USED,
+
+    //forgot-password
+    PHONE_NUMBER_NOT_EXIST,
+
+    //voice-search
+    VOICE_SEARCH_FETCHED_FAILED,
+    VOICE_SEARCH_FETCHED_SUCCESS,
+    VOICE_SEARCH_EMPTY
+
+}

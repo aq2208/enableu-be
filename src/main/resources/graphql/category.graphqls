@@ -1,0 +1,101 @@
+type CategoryEntity {
+    id: ID!
+    name: String
+    description: String
+    thumbnail: String
+    attachment: String
+    status: Status
+    code: String
+}
+
+type CategoryResponse {
+    id: Int
+    name: String
+    description: String
+    thumbnail: String
+    attachment: String
+    status: Status
+    code: String
+    modules: [ModuleResponse]
+    traineeIdList: [Int]
+    taskProcessId: Int
+    numberOfTasks:Int
+    numberOfModules: Int
+    numberOfTrainees: Int
+    createdAt: String
+    createdByUserId: Int
+    createdBy: String
+}
+
+input CategoryFilter {
+    status: [Status]
+    createdBy: String
+}
+
+type CategoryListResponse {
+    data: [CategoryResponse!]
+    pagination: Pagination!
+}
+
+input CategoryRequest {
+    name: String!
+    description: String!
+    thumbnail: String
+    attachment: String
+    status: Status!
+    traineeIdList: [Int]
+}
+
+type SearchResponse {
+    id: Int!
+    name: String!
+    description: String
+    tasks: [TaskSearchResponse!]
+    typeResponse: SearchTypeResponse!
+    thumbnail: String
+    status: Status
+}
+
+input SearchAllInput {
+    search: String
+    pageNumber: Int
+    pageSize: Int
+}
+
+type SearchAllResponse {
+    data: [SearchResponse!]
+    pagination: Pagination!
+}
+
+type TaskSearchResponse {
+    id: Int
+    name: String
+    description: String
+}
+
+input ChangeOrderRequest {
+    moduleId: Int
+    taskIds: [Int]
+}
+
+type OrderResponse {
+    id: Int!
+    orderId: Int!
+}
+
+type ModuleOrderResponse {
+    id: Int!
+    tasks: [OrderResponse!]
+    orderId: Int!
+}
+
+type CategoryOrderResponse {
+    id: Int!
+    name: String!
+    modules : [ModuleOrderResponse!]
+}
+
+type VoiceSearchResponse {
+    transcript: String
+    message: String!
+}

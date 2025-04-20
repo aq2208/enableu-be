@@ -1,0 +1,36 @@
+type ModuleEntity {
+    id: ID!
+    name: String
+    description: String
+    thumbnail: String
+    attachment: String
+    status: String
+    code: String
+    type: String
+    orderId: Int
+    category: CategoryEntity
+}
+
+input ModuleRequest {
+    name: String!
+    type: Type!
+    status: Status!
+    orderId: Int!
+    traineeIdList: [Int]
+}
+
+type ModuleResponse {
+    id: Int
+    name: String
+    status: Status
+    code: String
+    type: Type
+    orderId: Int
+    tasks: [TaskResponse]
+    traineeIdList: [Int]
+}
+
+type ModuleListResponse {
+    data: [ModuleResponse!]
+    pagination: Pagination!
+}

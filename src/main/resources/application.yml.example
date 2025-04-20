@@ -1,0 +1,46 @@
+spring:
+# liquibase
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/enable-u
+    username: admin
+    password: admin
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/master.xml
+    drop-first: false
+  graphql:
+    graphiql:
+      enabled: true
+  cache:
+    caffeine:
+      spec:initialCapacity=10,maximumSize=100,expireAfterAccess=1h
+
+cloud:
+  cloudflare:
+    credentials:
+      access-key: my-access-key-1234
+      secret-key: super-secret-4321
+    region:
+      static: auto
+    endpoint: http://local.cloudflarestorage.com
+    stack:
+      auto: false
+
+application:
+  jwt:
+    secret: 4f4b6b6b-4b6b-4b6b-4b6b-4b6b4b6b4b6b
+  bucket:
+    name: enableu-test-bucket
+    url: http://local.bucket.com
+
+twilio:
+  account-sid: andsdsfdsfd
+  auth-token: 234324aaaaa
+  phone-number: +1858212345
+speedsms:
+  access-key: abcd1235
+tts:
+  api-key: abcDeF123
+viettel-ai:
+  access-key: bc8d0984f147ab366febfdd800e42bfe

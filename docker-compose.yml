@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql:8.1.0
+    hostname: "mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: enable-u
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db/data:/var/lib/mysql

@@ -1,0 +1,30 @@
+enum Status {
+    ACTIVE,
+    INACTIVE
+}
+
+enum UserStatus {
+    ACTIVE ,
+    INACTIVE,
+    PENDING,
+    UNVERIFIED,
+    REJECTED
+}
+
+
+
+enum Type {
+    PUBLIC,
+    PRIVATE
+}
+
+enum SearchTypeResponse {
+    CATEGORY
+    TASK
+}
+
+enum Role {
+    ADMIN
+    TRAINER
+    TRAINEE
+}

@@ -1,0 +1,84 @@
+type User {
+    id: Int!
+    code: String!
+    username: String!
+    password: String!
+    email: String
+    fullName: String!
+    dob: String!
+    gender: String!
+    phone: String!
+    address: String
+    role: String!
+    status: String
+    refreshToken: String
+    shortcutInfo: String
+}
+
+type UserResponse {
+    id: Int!
+    code: String!
+    username: String
+    email: String
+    fullName: String
+    dob: String
+    gender: String
+    phone: String
+    address: String
+    role: String
+    status: String
+    shortcutInfo: [Shortcut]
+    avatar: String
+    additionalInfo: String
+    title: String
+    links: String
+    createdAt: String
+}
+
+type Shortcut {
+    name: String
+    keyboard: String
+}
+
+input ShortcutInput {
+    name: String
+    keyboard: String
+}
+
+input CreateUserInput {
+    username: String!
+    password: String!
+    email: String
+    dob: String
+    fullName: String!
+    gender: String!
+    address: String
+    role: String!
+}
+
+input UpdateUserProfile {
+    email: String
+    fullName: String
+    gender: String
+    dob: String
+    address: String
+    additionalInfo: String
+    title: String
+    links: String
+}
+
+type UserListResponse {
+    data: [UserResponse!]
+    pagination: Pagination!
+}
+
+input ChangePasswordRequest {
+    confirmPassword: String!
+    oldPassword: String!
+    newPassword: String!
+}
+
+input UserFilter {
+    status: [UserStatus]
+    role: [Role]
+}

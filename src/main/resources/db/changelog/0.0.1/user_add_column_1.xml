@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="add-columns-to-user-table" author="maintn">
+        <addColumn tableName="user">
+            <column name="avatar" type="nvarchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="update-gender-column-to-enum" author="maintn">
+        <dropColumn tableName="user" columnName="gender"/>
+
+        <addColumn tableName="user">
+            <column name="gender" type="enum('male', 'female', 'other')" defaultValue="male">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="update-gender-column-to-enum-1" author="maintn">
+        <dropColumn tableName="user" columnName="gender"/>
+
+        <addColumn tableName="user">
+            <column name="gender" type="enum('MALE', 'FEMALE', 'OTHER')" defaultValue="male">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="add-clm-is-review-mode" author="maintn">
+        <addColumn tableName="task">
+            <column name="is_review_mode" type="boolean" defaultValue="false">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="update-is-review-mode-nullable-false" author="maintn">
+        <!-- Step 1: Update all NULL values to 0 (false in MySQL) -->
+        <update tableName="task">
+            <column name="is_review_mode" valueNumeric="0" />
+            <where>is_review_mode IS NULL</where>
+        </update>
+
+        <!-- Step 2: Add NOT NULL constraint -->
+        <addNotNullConstraint
+                tableName="task"
+                columnName="is_review_mode"
+                columnDataType="boolean" />
+    </changeSet>
+    <changeSet id="alter-title-column-type" author="maintn">
+        <modifyDataType tableName="task" columnName="highlight_time_json" newDataType="text"/>
+    </changeSet>
+
+    <changeSet id="alter-title-column" author="maintn">
+        <modifyDataType tableName="user" columnName="shortcut_info" newDataType="text"/>
+    </changeSet>
+
+    <changeSet id="update-shortcut-info-user" author="maintn">
+        <update tableName="user">
+            <column name="shortcut_info" value='[{"name":"VOICE_SEARCH","keyboard":"Ctrl + k"},{"name":"TYPE_SEARCH","keyboard":"/"},{"name":"NEXT_STEP","keyboard":"Ctrl + ArrowUp"},{"name":"BACK_STEP","keyboard":"Ctrl + ArrowDown"},{"name":"PLAY_PAUSE_TEXT_TO_SPEECH","keyboard":"Ctrl + Space"}]'/>
+            <where>shortcut_info = '[{\"name\":\"VOICE_SEARCH\",\"keyboard\":\"Shift + Shift\"},{\"name\":\"TYPE_SEARCH\",\"keyboard\":\"/\"},{\"name\":\"NEXT_STEP\",\"keyboard\":\"Ctrl + Arrow Up\"},{\"name\":\"BACK_STEP\",\"keyboard\":\"Ctrl + Arrow Down\"},{\"name\":\"PLAY_PAUSE_TEXT_TO_SPEECH\",\"keyboard\":\"Ctrl + Space\"}]'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>
