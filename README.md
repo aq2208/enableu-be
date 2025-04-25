@@ -1,4 +1,4 @@
-# EnableU - Inclusive Learning Platform
+# EnableU - Inclusive Online Learning Platform
 
 EnableU is an inclusive online learning platform tailored to support neurodivergent individuals, inspired by platforms like Coursera and Udemy. Developed as a capstone project by students at FPT University in collaboration with **Imago Work** — a real-world client advocating for neurodivergent communities — EnableU aims to make digital education accessible, personalized, and empowering.
 
