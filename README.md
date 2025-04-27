@@ -19,13 +19,13 @@ EnableU is an inclusive online learning platform tailored to support neurodiverg
 
 | Layer              | Technology                                                                 |
 |--------------------|-----------------------------------------------------------------------------|
-| **Backend**        | `Spring Boot`, `GraphQL`, `Spring Security`, `JWT`, `Lombok`, `Maven`       |
-| **Frontend**       | React.js (optional based on actual implementation)                          |
+| **Backend**        | `Spring Boot`, `GraphQL`, `Spring Security`, `JWT`, `Lombok`, `Gradle`      |
+| **Frontend**       | React.js                                                                    |
 | **Database**       | `MySQL`                                                                     |
 | **Object Storage** | `Cloudflare R2` (S3-compatible API)                                         |
 | **Authentication** | Phone-based verification, `JWT`, Spring Security                            |
-| **DevOps**         | Dockerized environment (optional based on deployment setup)                 |
-| **AI Integration** | Text-to-speech & speech-to-text (using external AI services, e.g., Google)  |
+| **DevOps**         | Dockerized environment                                                      |
+| **AI Integration** | Text-to-speech & speech-to-text (using external AI services)                |
 
 ---
 
